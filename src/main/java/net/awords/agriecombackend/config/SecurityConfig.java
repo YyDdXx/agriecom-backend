@@ -44,7 +44,9 @@ public class SecurityConfig {
                 .authorizeHttpRequests(reg -> reg
                         .requestMatchers(OPEN_API).permitAll()
                         .requestMatchers(HttpMethod.GET, "/").permitAll()
+            // 公共可访问的开放接口
             .requestMatchers(HttpMethod.GET, "/api/v1/shops/**").permitAll()
+            .requestMatchers(HttpMethod.GET, "/api/v1/products/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);

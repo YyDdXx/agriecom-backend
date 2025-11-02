@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PositiveOrZero;
 import jakarta.validation.constraints.Size;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.List;
@@ -64,7 +65,7 @@ public class ProductDtos {
     /**
      * 商户管理后台查看商品详情时使用。
      */
-    public static class Detail {
+    public static class Detail implements Serializable {
         public Long id;
         public String name;
         public String description;

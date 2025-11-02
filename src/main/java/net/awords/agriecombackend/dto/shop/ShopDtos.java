@@ -4,6 +4,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import net.awords.agriecombackend.entity.ShopStatus;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.List;
@@ -49,7 +50,7 @@ public class ShopDtos {
     /**
      * 买家浏览时使用的精简店铺摘要。
      */
-    public static class PublicSummary {
+    public static class PublicSummary implements Serializable {
         public Long id;
         public String name;
         public String description;
@@ -59,9 +60,9 @@ public class ShopDtos {
     }
 
     /**
-     * 买家查看店铺主页时返回的详细信息，包含商品列表。
+     * 买家查看店铺主页时返回的详细信息,包含商品列表。
      */
-    public static class PublicDetail {
+    public static class PublicDetail implements Serializable {
         public PublicSummary shop;
         public List<ProductSummary> products;
     }
@@ -69,7 +70,7 @@ public class ShopDtos {
     /**
      * 店铺内商品的公开展示信息。
      */
-    public static class ProductSummary {
+    public static class ProductSummary implements java.io.Serializable {
         public Long id;
         public String name;
         public String description;
